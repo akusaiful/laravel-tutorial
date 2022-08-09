@@ -1,4 +1,4 @@
-# Welcome to Online Laravel Documentation (Update) - Publishing source none
+# Welcome to Online Laravel Documentation (Update) - Publishing source none / remove rule
 
 
 ## Laravel Naming convention 
