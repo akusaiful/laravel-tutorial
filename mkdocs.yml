@@ -1,0 +1,44 @@
+site_name: Laravel Manual
+theme:
+  name: material
+  
+  features:
+    - content.code.annotate
+  #   - navigation.tabs
+  #   - navigation.tabs.sticky
+  font:
+    text: Roboto
+  palette:
+    primary: indigo  
+markdown_extensions:
+  - attr_list
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
+  
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
+nav:
+  - Introduction: index.md
+  - Installation: installation.md
+  - Working With Database:
+    - Database Migration: database_migration.md
+    - Eloquent: eloquent.md
+    - Routing: routing.md
+  - Working with Form:
+    - Form Validation (CRUD): form_validation.md
+    - Local Scopes: local_scopes.md
+    - Search Query: search_query.md
+    - Authentication: authentication.md
+  - Route: route.md
+  - Home: index.md
+  - About:
+    - About Nest: about.md
+  - Records Management : record_management.md
+  - Login: login.md
+  - Package : package.md
+  - Composer: composer.md
+  - Artisan: artisan.md
