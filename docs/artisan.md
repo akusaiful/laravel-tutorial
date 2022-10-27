@@ -1,3 +1,5 @@
+## Artisan - Laravel command-line interface
+
 Publish vendor 
 
     php artisan vendor:publish
@@ -17,6 +19,11 @@ Senaraikan semua route
 Clear config cache `env`. Jika modified environment
 
     php artisan config:clear
+
+Check Laravel framework version
+
+    php artisan --version
+
 
 
 

@@ -1,44 +1,150 @@
 site_name: Laravel Manual
+site_description: 'Laravel manual project for class'
+site_author: 'akusaiful'
+site_url: ''
+
+# Repository
+repo_name: 'my-github-handle/my-project'
+repo_url: 'https://github.com/john-doe/my-project'
+
+# Copyright
+copyright: 'Copyright &copy; 2022 akusaiful'
+
 theme:
-  name: material
-  
+  name: material  
   features:
     - content.code.annotate
-  #   - navigation.tabs
-  #   - navigation.tabs.sticky
+    - navigation.instant
+    - navigation.tracking
+    - navigation.expand
+    # - navigation.sections
+    - navigation.tabs
+    - navigation.top
+    # - navigation.tabs.sticky
+  icon:
+    repo: fontawesome/brands/git-alt  
   font:
     text: Roboto
+    code: 'Roboto Mono'
   palette:
-    primary: indigo  
-markdown_extensions:
-  - attr_list
+    - scheme: slate
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+      primary: red
+plugins:
+    - search
+    # - git-revision-date
+
+extra_css:
+  - stylesheets/extra.css
+
+# Extensions
+markdown_extensions:   
   - pymdownx.highlight:
-      anchor_linenums: true
+      use_pygments: true
+      anchor_linenums: true  
+      linenums: true   
+      # auto_title: true   
+      linenums_style: pymdownx-inline
+      
   - pymdownx.inlinehilite
+  - pymdownx.tabbed:
+      alternate_style: true    
+  - admonition
+  # - codehilite  
+  - attr_list  
+  
   - pymdownx.snippets
   - pymdownx.superfences
-  
+   
   - pymdownx.emoji:
-      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_index:  !!python/name:materialx.emoji.twemoji
       emoji_generator: !!python/name:materialx.emoji.to_svg
 nav:
+- Intro: 
   - Introduction: index.md
+  - Class Guide: guide.md
   - Installation: installation.md
-  - Working With Database:
-    - Database Migration: database_migration.md
-    - Eloquent: eloquent.md
-    - Routing: routing.md
-  - Working with Form:
-    - Form Validation (CRUD): form_validation.md
-    - Local Scopes: local_scopes.md
-    - Search Query: search_query.md
-    - Authentication: authentication.md
-  - Route: route.md
-  - Home: index.md
-  - About:
-    - About Nest: about.md
-  - Records Management : record_management.md
-  - Login: login.md
+  - Laravel Structure: structure.md
+  - Hello Laravel : hello-laravel.md
+  - Blade Template : templating.md
+
+- Database:   
+  - Configuration: db.md
+  - Migration : database_migration.md
+  - Seeder: seeder.md
+  - Model: model.md
+  - Controller: controller.md
+  - Routing: routing.md  
+
+- BREAD:
+  - CRUD Scaffolding: form_crud.md
+  - Pagination: pagination.md
+  - Request Validation: form_validation.md
+  - Search: search.md    
+  - Scopes: local_scopes.md
+  - Search Query: search_query.md
+  
+  # - Blade: blade.md  
+- Eloquent: 
+  - Eloquent: eloquent.md  
+  - Relationship : relationship.md
+  - SQL Debugging: debugging.md
+
+- Auth:
+  - User Login: user_login.md
+  - Auth Scaffold: authentication.md
+
+- Upload: 
+  - Upload File: upload.md  
+  
+- Utils:   
+  - Helpers: helper.md
   - Package : package.md
+  - Voyager: voyager.md 
   - Composer: composer.md
-  - Artisan: artisan.md
+  - Artisan Command: artisan.md
+  - Markdown Tips : markdown.md
+- Reference: resource.md
+  # - Introduction: index.md
+  # - Class Guide: guide.md
+  # - Installation: installation.md
+  # - Laravel Structure: structure.md
+  # - Hello Laravel : hello-laravel.md
+  # - Blade Template : templating.md
+  # - Database Conf: db.md
+  # - Migration : database_migration.md
+  # # - Seeder: seeder.md
+  # - Model: model.md
+  # - Controller: controller.md
+  # - Routing: routing.md  
+  
+  # - Working with CRUD:
+  #   - CRUD Scaffolding: form_crud.md
+  #   - Pagination: pagination.md
+  #   - Request Validation: form_validation.md
+  #   - Scopes: local_scopes.md
+  #   - Search Query: search_query.md
+  
+  # # - Blade: blade.md
+  # - User Login: user_login.md
+  # - Auth Scaffold: authentication.md
+  
+  # - Eloquent: 
+  #   - Eloquent: eloquent.md  
+  #   - Relationship : relationship.md
+
+  # - Upload File: upload.md  
+  # - SQL Debugging: debugging.md
+  
+  # - Helpers: helper.md
+  # - Laravel Package:
+  #   - Package : package.md
+  #   - Voyager: voyager.md
+  # - Command:
+  #   - Composer: composer.md
+  #   - Artisan Command: artisan.md
+  #   - Markdown Tips : markdown.md
+  # - Reference: resource.md
+  

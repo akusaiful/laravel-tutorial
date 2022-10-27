@@ -1,34 +1,39 @@
-# Local Scope
+# Scope Filter
 
+Scope digunakan dalam model bagi mengurangkan pengulangan code yang sering digunakan
 
 Model
 
-    public functon scopePublished($query){
-        return $query->where('published_at', '<=', now());
-    }
-
+```php
+<?php 
+public functon scopePublished($query){
+    return $query->where('published_at', '<=', now());
+}
+```
 
 Controller
 
     Post::latestFirst()->published()->get();
 
-#### Cleaner way to update controller
+### Query Searching 
 
 Model
 
-    public function scopeFilter(\Illuminate\Database\Eloquent\Builder $query)
-    {
-        if($companyId = \request('company_id')){
-            $query->where('company_id', $companyId);
-        }
-
-        if($queryText = \request('query_text')){
-            $query->where('first_name', 'LIKE', "%{$queryText}%");
-        }
-
-        return $query;
+```php 
+<?php 
+public function scopeFilter(\Illuminate\Database\Eloquent\Builder $query)
+{
+    if($companyId = \request('company_id')){
+        $query->where('company_id', $companyId);
     }
 
+    if($queryText = \request('query_text')){
+        $query->where('first_name', 'LIKE', "%{$queryText}%");
+    }
+
+    return $query;
+}
+```
 
 Controller
 

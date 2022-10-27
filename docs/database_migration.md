@@ -9,161 +9,99 @@ some_url: academy.jpj.gov.my/mylatihan
 
 # Database Migration
 
-    
 
-## Migration
-
-Install migration table
-
-    php artisan migrate:install 
-
-
-Install all/changes/new tables dalam folder **database/migrations**
-
-    php artisan migrate
+## Create Migration Table
 
 Create table migration
 
-    php artisan make:migration create_companies_table  
+    php artisan make:migration create_stocks_table  
 
-Rollback table migration
+
+File berikut akan dihasilkan `2022_08_30_230749_create_stocks_table.php` di lokasi `database\migrations\`. Masukkan column yang dikehendaki seperti berikut : 
+
+```php
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+class CreateStocksTable extends Migration
+{
+    /**
+    * Run the migrations.
+    *
+    * @return void
+    */
+    public function up()
+    {
+        Schema::create('stocks', function (Blueprint $table) {
+            // Senarai Column
+            $table->id();
+            $table->integer('order_satus');
+            $table->string('note_order');
+            $table->string('note_hq');                
+            $table->timestamp('submited_at')->useCurrent();
+            $table->timestamps();
+        });
+    }
+
+    /**
+    * Reverse the migrations.
+    *
+    * @return void
+    */
+    public function down()
+    {
+        Schema::dropIfExists('stocks');
+    }
+}
+```
+
+Laksanakan arahan untuk migration table tersebut (Single table). Laravel akan create table ke dalam dabatase mengikut schema yang telah ditakrifkan. 
+
+    php artisan migrate --path=database/migrations/2022_10_12_035734_create_stocks_table.php
+
+table yang dihasilkan akan kelihatan seperti berikut :
+
+![Laravel](img/table.png)
+
+!!! tips
+    Laravel Blueprint available method [https://laravel.com/api/8.x/Illuminate/Database/Schema/Blueprint.html](https://laravel.com/api/8.x/Illuminate/Database/Schema/Blueprint.html)
+
+## Migration workaround
+
+Install keseluruhan migration table yang berada di `database\migrations`
+
+    php artisan migrate:install 
+
+Install all/changes/new tables dalam folder `database/migrations`
+
+    php artisan migrate
+
+Rollback table migration (rollback ke 1 step batch)
 
     php artisan migrate:rollback
 
-## Seeder 
+Laravel akan rollback table yang telah di execute mengikut batch number yang tertera pada table `migrations`
+ 
+![Laravel](img/migration_batch.png) 
 
-Create table seeder
-     
-     php artisan make:seeder CompaniesTableSeeder
+Refresh migration file (drop table dan re-run semula migration file) dan run seed
 
-Masukkan code untuk seeder table 
+    php artisan migrate:refresh --seed
 
-     <?php
+Rollback batch ikut step
 
-    namespace Database\Seeders;
+    php artisan migrate:rollback --step=2
 
-    use Illuminate\Database\Seeder;
-    use Illuminate\Support\Facades\DB;
+The migrate:reset command will roll back all of your application's migrations:
 
-    class CompaniesTableSeeder extends Seeder
-    {
-        /**
-        * Run the database seeds.
-        *
-        * @return void
-        */
-        public function run()
-        {
-            //
-            DB::table('companies')->truncate();
-
-            $companies = [];
-
-            foreach (range(1, 1000) as $key){
-                $companies[] = [
-                    'name' => $name = "Company $key",
-                    'address' => "Address $name",
-                    'website' => "website{$key}.com",
-                    'email' => "email$key@gmail.com",
-                    'created_at' => now(),
-                    'updated_at' => now()
-                ];
-            }
-
-            DB::table('companies')->insert($companies);
-        }
-    }
+    php artisan migrate:reset
 
 
-Run Seeder table
-     
-     php artisan db:seed --class=CompaniesTableSeeder 
+!!! note 
 
+    Jika berlaku error **SQLSTATE[42000]: Syntax error or access violation: 1071 Specified key was too long; max key length is 767 bytes (SQL: alter table `users` add unique `users_email_unique`(`email`))**
 
-or register seeder dalam file DatabaseSeeder.php
-
-    <?php
-
-    namespace Database\Seeders;
-
-    use Illuminate\Database\Seeder;
-
-    class DatabaseSeeder extends Seeder
-    {
-        /**
-        * Seed the application's database.
-        *
-        * @return void
-        */
-        public function run()
-        {
-            // \App\Models\User::factory(10)->create();
-            $this->call(CompaniesTableSeeder::class);
-        }
-    }
-
-Kemedian laksanakan arahan berikut tanpa option
-
-     php artisan db:seed
-
-## Faker Library
-
-    <?php
-
-    namespace Database\Seeders;
-
-    use Faker\Factory;
-    use Illuminate\Database\Seeder;
-    use Illuminate\Support\Facades\DB;
-
-    class CompaniesTableSeeder extends Seeder
-    {
-        /**
-        * Run the database seeds.
-        *
-        * @return void
-        */
-        public function run()
-        {            
-            DB::table('companies')->truncate();
-
-            $companies = [];
-            $faker = Factory::create();
-
-            foreach (range(1, 1000) as $key){
-                $companies[] = [
-                    'name' => $faker->name,
-                    'address' => $faker->address,
-                    'website' => $faker->domainName,
-                    'email' => $faker->email,
-                    'created_at' => now(),
-                    'updated_at' => now()
-                ];
-            }
-
-            DB::table('companies')->insert($companies);
-        }
-    }
-
-Kemudian laksanakan arahan berikut 
-
-     php artisan db:seed
-
-
-Composer - clear cache 
-
-    composer dump-autoload
-
-## Model
-
-Create table model, use naming convetion camel case
-
-    php artisan make:model <Model>
-
-Create table model with migration table
-
-    php artisan make:model <Model> -m 
-
-## Pluck
-
-    Companies::orderBy('name')->pluck('name', 'id')
+    Rujuk [voyager error](installation.md)  
