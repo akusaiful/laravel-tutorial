@@ -83,7 +83,7 @@ nav:
   - Pagination: pagination.md
   - Request Validation: form_validation.md
   - Search: search.md    
-  - Scopes: local_scopes.md
+  - Model Scopes: local_scopes.md
   - Search Query: search_query.md
   
   # - Blade: blade.md  
