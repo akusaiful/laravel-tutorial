@@ -17,24 +17,22 @@
     │  └─ Database
     │     └─ Migration
     │     └─ Seeder/Faker
-    │     └─ Eloquent ORM
-    │     └─ Relationship
+    │     └─ Model                
     │  └─ Routing, Controller, Views
     │     └─ Basic routing
     │     └─ Building views (Blade)
     │     └─ Controller
-    │  └─ Rendering Dynamic Data
-    │     └─ Pagination, Filtering
-    │     └─ Filtering         
-    │  └─ Working with Form
-    │     └─ Handling Form (BREAD)
+    │  └─ CRUD - Rendering Dynamic Data
+    │     └─ BREAD Scaffolding
+    │     └─ Pagination
     │     └─ Validation
-    │     └─ Searching
-    │  └─ Layout Blade
-    │  └─ Database Setup  
     │
     ├─ Day 3
-    │  └─ Query Scope      
+    │  └─ Query Scope
+    │     └─ Searching
+    │     └─ Filtering         
+    │     └─ Eloquent ORM
+    │     └─ Relationship          
     │  └─ Authentication
     │     └─ Authentication Scaffolding
     │     └─ Verification    

@@ -4,8 +4,8 @@ site_author: 'akusaiful'
 site_url: ''
 
 # Repository
-repo_name: 'my-github-handle/my-project'
-repo_url: 'https://github.com/john-doe/my-project'
+# repo_name: 'my-github-handle/my-project'
+# repo_url: 'https://github.com/john-doe/my-project'
 
 # Copyright
 copyright: 'Copyright &copy; 2022 akusaiful'
@@ -17,10 +17,10 @@ theme:
     - navigation.instant
     - navigation.tracking
     - navigation.expand
-    # - navigation.sections
+    - navigation.sections
     - navigation.tabs
     - navigation.top
-    # - navigation.tabs.sticky
+    - navigation.tabs.sticky
   icon:
     repo: fontawesome/brands/git-alt  
   font:
@@ -67,18 +67,22 @@ nav:
   - Class Guide: guide.md
   - Installation: installation.md
   - Laravel Structure: structure.md
-  - Hello Laravel : hello-laravel.md
+  - Hello Laravel (Route) : hello-laravel.md
   - Blade Template : templating.md
+  - Tugasan 1 : tugasan_1.md
 
 - Database:   
   - Configuration: db.md
   - Migration : database_migration.md
   - Seeder: seeder.md
+  - Faker Library: faker.md
   - Model: model.md
+  - Factory: factory.md
   - Controller: controller.md
-  - Routing: routing.md  
 
-- BREAD:
+- Routing: routing.md  
+
+- CRUD:
   - CRUD Scaffolding: form_crud.md
   - Pagination: pagination.md
   - Request Validation: form_validation.md
@@ -93,20 +97,40 @@ nav:
   - SQL Debugging: debugging.md
 
 - Auth:
-  - User Login: user_login.md
-  - Auth Scaffold: authentication.md
+  - Installation: auth_install.md
+  - Visibility: auth_visibility.md
+  - Protecting Route: authentication.md
+  - Eloquent Auth: auth_eloquent.md
+  - Email Verification: auth_email_verification.md
+  - Password Confirm Page : auth_password_confirm_page.md
+
+- Mail: 
+  - Setup: mail_setup.md  
 
 - Upload: 
   - Upload File: upload.md  
+
+- PDF: 
+  - Generate PDF: pdf.md
+
+- Translation:
+  - Setup: translation.md
+  - Transalation Middleware: translation_middleware.md
   
 - Utils:   
   - Helpers: helper.md
+  - Debugbar: debugbar.md
+  
+  
+- Reference:
+  - Template: template.md
+  - eBook: ebook.md
   - Package : package.md
   - Voyager: voyager.md 
   - Composer: composer.md
   - Artisan Command: artisan.md
   - Markdown Tips : markdown.md
-- Reference: resource.md
+  - Reference: resource.md
   # - Introduction: index.md
   # - Class Guide: guide.md
   # - Installation: installation.md

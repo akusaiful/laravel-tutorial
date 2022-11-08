@@ -5,6 +5,7 @@
 Verb route 
 
 ```php
+<?php
 Route::get($uri, $callback);
 Route::post($uri, $callback);
 Route::put($uri, $callback);
@@ -15,39 +16,57 @@ Route::options($uri, $callback);
 
 Response to multiple verb
 
-    Route::match(['get', 'post'], '/', function () {
-        //
-    });
+```php
+<?php
+Route::match(['get', 'post'], '/', function () {
+    //
+});
+```
 
 Response to any verb
 
-    Route::any('/', function () {
-        //
-    });
+```php
+<?php
+Route::any('/', function () {
+    //
+});
+```
 
 Return string 
 
-    Route::get('contacts', function (){
-        return "<h1>All Contacts</h1>";
-    });    
+```php
+<?php
+Route::get('contacts', function (){
+    return "<h1>All Contacts</h1>";
+});    
+```
 
 Routing with `view()` 
 
-    Route::get('/', function () {
-        return view('welcome');
-    });
+```php
+<?php
+Route::get('/', function () {
+    return view('welcome');
+});
+```
 
 Named routes
 
-    Route::get('/', function () {
-        return view('welcome');
-    })->name('contacts.index);
+```php
+<?php
+Route::get('/', function () {
+    return view('welcome');
+})->name('contacts.index);
+```
 
 Return data menggunakan model
 
-    Route::get('/contacts/{id}', function($id) {
-        return \App\Models\Contact::find($id);
-    });
+```php
+<?php
+Route::get('/contacts/{id}', function($id) {
+    return \App\Models\Contact::find($id);
+});
+```
 
 
 ## Route using controller class 
@@ -68,67 +87,89 @@ View ID
 
 Change following method 
 
-    public function view($id)
-    {
-        $contact = \App\Models\Contact::findOrFail($id);
-        return view('contacts.view', compact('contact'));
-    }
+```php
+<?php
+public function view($id)
+{
+    $contact = \App\Models\Contact::findOrFail($id);
+    return view('contacts.view', compact('contact'));
+}
+```
 
 to 
 
-    public function view(Contact $contact)
-    {
-        return view('contacts.view', compact('contact'));
-    }
+```php
+<?php
+public function view(Contact $contact)
+{
+    return view('contacts.view', compact('contact'));
+}
+```
 
 Change route `web.php`
 
-    Route::get('/contacts/{id}', [\App\Http\Controllers\ContactController::class, 'view'])->name('contacts.view');
+```php
+<?php
+Route::get('/contacts/{id}', [\App\Http\Controllers\ContactController::class, 'view'])->name('contacts.view');
+```
 
 to 
 
-    Route::get('/contacts/{contact}', [\App\Http\Controllers\ContactController::class, 'view'])->name('contacts.view');
-
+```php
+<?php
+Route::get('/contacts/{contact}', [\App\Http\Controllers\ContactController::class, 'view'])->name('contacts.view');
+```
 
 ## Explicit - Route Model Binding
 
 Update file `app\Providers\RouteServiceProvider.php`. Dengan memasukkan injector model kita tidak perlu lagi define model yang akan digunakan dibahagian controller method parameter. 
 
-    public function boot()
-    {
-        $this->configureRateLimiting();
+```php
+<?php
+public function boot()
+{
+    $this->configureRateLimiting();
 
-        $this->routes(function () {
-            Route::prefix('api')
-                ->middleware('api')
-                ->namespace($this->namespace)
-                ->group(base_path('routes/api.php'));
+    $this->routes(function () {
+        Route::prefix('api')
+            ->middleware('api')
+            ->namespace($this->namespace)
+            ->group(base_path('routes/api.php'));
 
-            Route::middleware('web')
-                ->namespace($this->namespace)
-                ->group(base_path('routes/web.php'));
-        });
+        Route::middleware('web')
+            ->namespace($this->namespace)
+            ->group(base_path('routes/web.php'));
+    });
 
-        Route::model('contact', Contact::class);
+    // route model binding
+    Route::model('contact', Contact::class);
 
-        // atau
-        Route::bind('contact', function($value){
-            return Contact::where('first_name', $value)->firstOrFail();
-        });
-    }
-
-atau boleh ditulis seperti berikut, kaedah ini membolehkan customization dibuat keatas query
-
+    // route model binding with customization query
     Route::bind('contact', function($value){
         return Contact::where('first_name', $value)->firstOrFail();
     });
+}
+```
+
+Route akan ditulis seperti berikut : 
+
+```php
+<?php
+Route::get('/calc/{model}', function(Request $request, $model){
+    $number = empty($request->number)? 2 : $request->number;
+    return view('home.calc')->with('number', $number)->with('phone', $model);
+});
+```
 
 Controller method boleh ditulis seperti berikut:
 
-    public function view($contact)
-    {
-        return view('contacts.view', compact('contact'));
-    }
+```php
+<?php
+public function view($contact)
+{
+    return view('contacts.view', compact('contact'));
+}
+```
 
 Panggilan ke atas properties untuk object `contact` boleh dibuat seperti biasa seperti berikut `$contact->name` sebagai contoh.
 
@@ -140,18 +181,23 @@ Sekiranya implicit model yang dibuat tidak merujuk column `id` sebagai referece 
 
 Override method `getRouteKey()` dalam model `Contact.php`
 
-    public function getRouteKeyName()
-    {        
-        // rujukan kepada column yg akan digunakan oleh query
-        return 'first_name';
-    }
+```php
+<?php
+public function getRouteKeyName()
+{        
+    // rujukan kepada column yg akan digunakan oleh query
+    return 'first_name';
+}
+```
 
 ### Option 2
 
 Guna route `web.php` (laravel 7+)
 
-    Route::get('/contacts/{contact:first_name}', [\App\Http\Controllers\ContactController::class, 'view'])->name('contacts.view');
-
+```php
+<?php
+Route::get('/contacts/{contact:first_name}', [\App\Http\Controllers\ContactController::class, 'view'])->name('contacts.view');
+```
 !!! tips
     
     Untuk Troubleshoot route, anda boleh menggunakan function `dd()` : 
@@ -170,10 +216,13 @@ Untuk method yang sama dalam controller bagi tugasan CRUD boleh menggunakan `Rou
 
 atau boleh ditulis seperti berikut menggunakan `[]` :
 
-    Route::resources([
-        'contacts' => \App\Http\Controllers\ContactController::class,
-        'companies' => \App\Http\Controllers\CompanyController::class
-    ]);  
+```php
+<?php
+Route::resources([
+    'contacts' => \App\Http\Controllers\ContactController::class,
+    'companies' => \App\Http\Controllers\CompanyController::class
+]);  
+```
 
 ## Partial Resource Route
 
@@ -210,10 +259,13 @@ Verify using artisan
 
 Atau boleh guna `[]` bersama `Route::apiResources()`
 
-     Route::apiResources([
-        'contacts' => \App\Http\Controllers\Api\ContactController::class,
-        'companies' => \App\Http\Controllers\Api\CompanyController::class
-    ]);  
+```php
+<?php
+Route::apiResources([
+    'contacts' => \App\Http\Controllers\Api\ContactController::class,
+    'companies' => \App\Http\Controllers\Api\CompanyController::class
+]);  
+```
 
 ## Print all route 
 

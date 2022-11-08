@@ -17,22 +17,3 @@
 ## Customize validation error messages
 
 1. [How to customize or Change validation error messages](https://w3codegenerator.com/code-snippets/laravel/how-to-customize-or-change-validation-error-messages#:~:text=Validation%20error%20messages%20customization%20in%20laravel&text=You%20can%20customize%20or%20change,attribute%20you%20can%20use%20'title.)
-
-## eBook 
-
-1. [Laravel_ Up & Running_ A Framework for Building Modern PHP Apps ( PDFDrive )](assets/Laravel_Up_Running_A_Framework_for_Building_Modern_PHP_Apps_(PDFDrive).pdf)
-2. [Learning Laravel](assets/laravel.pdf)
-
-
-## Download Workshop Template
-
-[Download Template](#){ .md-button .md-button--primary }
-
-or clone using git 
-
-    git clone ....
-
-## Laravel extender controller
-
-    https://github.com/timwassenburg/laravel-improved-resource-controllers
-

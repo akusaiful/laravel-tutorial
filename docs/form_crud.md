@@ -314,81 +314,81 @@ public function store(Request $request)
 
 1. Delete using POST
 
-View
+    View
 
-```html
-<form action="{{ route('phones.destroy', $phone->id) }}" method="POST" class="form-inline-block" id="frm-delete">
-    @method('DELETE')
-    @csrf
-    <a href="{{ route('phones.edit', $phone->id) }}" class="btn btn-outline-primary">Edit</a>
-    <a href="{{ session('prev-url') }}" class="btn btn-outline-primary">Back</a>
-    <input type="submit" value="Delete" class="btn btn-outline-danger">
-</form>
-```
+    ```html
+    <form action="{{ route('phones.destroy', $phone->id) }}" method="POST" class="form-inline-block" id="frm-delete">
+        @method('DELETE')
+        @csrf
+        <a href="{{ route('phones.edit', $phone->id) }}" class="btn btn-outline-primary">Edit</a>
+        <a href="{{ session('prev-url') }}" class="btn btn-outline-primary">Back</a>
+        <input type="submit" value="Delete" class="btn btn-outline-danger">
+    </form>
+    ```
 
-Route 
+    Route 
 
-    Route::delete('phones/destroy', [PhoneController::class, 'destroy'])->name('phones.destroy)
+        Route::delete('phones/destroy', [PhoneController::class, 'destroy'])->name('phones.destroy)
 
-Controller
+    Controller
 
-```php 
-<?php 
-public function destroy(Phone $phone)
-{
-    $phone->delete();
-    return redirect()->to(session('prev-url'))->with('message', 'Delete done');
-}
-```
+    ```php 
+    <?php 
+    public function destroy(Phone $phone)
+    {
+        $phone->delete();
+        return redirect()->to(session('prev-url'))->with('message', 'Delete done');
+    }
+    ```
 
 
 2. Delete Using JS
 
-Route !#web.php
+    Route `web.php`
 
-```php
-<?php 
-Route::delete('/contacts/{id}', [\App\Http\Controllers\ContactController::class, 'delete'])->name('contacts.delete');
-```
+    ```php
+    <?php 
+    Route::delete('/contacts/{id}', [\App\Http\Controllers\ContactController::class, 'delete'])->name('contacts.delete');
+    ```
 
-Blade
+    Blade
 
-```html
-<a href="{{ route('contacts.delete', $contact->id) }}" class="btn-delete btn btn-sm btn-circle btn-outline-danger" title="Delete"><i class="fa fa-times"></i></a>
+    ```html
+    <a href="{{ route('contacts.delete', $contact->id) }}" class="btn-delete btn btn-sm btn-circle btn-outline-danger" title="Delete"><i class="fa fa-times"></i></a>
 
-.....
+    .....
 
-<form id="form-delete" method="POST" style="display: none">
-@method('DELETE')
-@csrf
-</form>
-```
+    <form id="form-delete" method="POST" style="display: none">
+    @method('DELETE')
+    @csrf
+    </form>
+    ```
 
-JS app.js
+    JS `public\js\app.js`
 
-```js
-document.querySelectorAll('.btn-delete').forEach((button) => {
-    button.addEventListener('click', function (event) {
-        event.preventDefault();
-        if(confirm("Are you sure")){
-            let action = this.getAttribute('href');
-            let form = document.getElementById('form-delete');
-            form.setAttribute('action', action);
-            form.submit();
-        }
+    ```js
+    document.querySelectorAll('.btn-delete').forEach((button) => {
+        button.addEventListener('click', function (event) {
+            event.preventDefault();
+            if(confirm("Are you sure")){
+                let action = this.getAttribute('href');
+                let form = document.getElementById('form-delete');
+                form.setAttribute('action', action);
+                form.submit();
+            }
+        });
     });
-});
-```
+    ```
 
-Controller
+    Controller
 
-```php
-<?php 
-public function delete($id)
-{
-    Contact::query()->findOrFail($id)->delete();
-    return back()->with('message', 'Contact has been deleted successfully.');
-}
+    ```php
+    <?php 
+    public function delete($id)
+    {
+        Contact::query()->findOrFail($id)->delete();
+        return back()->with('message', 'Contact has been deleted successfully.');
+    }
 ```
 
 ## Final Route 

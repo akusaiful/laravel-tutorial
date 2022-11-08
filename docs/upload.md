@@ -1,6 +1,6 @@
-## Classic Method
 
-Set form to `enctype="multipart/form-data"`
+
+## 1. Set form to `enctype="multipart/form-data"`
 
 ```php
 <?php
@@ -8,13 +8,18 @@ Set form to `enctype="multipart/form-data"`
     @csrf
     @method('PUT')     
 ```
-input file dalam form, `accept="image/*` for client side validation
+
+## 2. Set input file
+
+Set input file dalam form `accept="image/*` for client side validation
 
 ```html
 <input type="file" name="profile_picture" accept="image/*">
 ```
 
-Server side validation, boleh letak dkt controller atau `$request`
+## 3. Create Server side validation
+
+Create validation dekat bahagian controlller atau masukkan di bahagian request class. 
 
 ```php
 <?php
@@ -28,11 +33,22 @@ public function rules()
 }
 ```
 
-Create folder in `public/upload` to move location 
+## 4. Create folder `public/upload` 
 
-Update model property `$fillable`
+Create folder sebagai tempat lokasi upload file. Setkan write permision untuk folder tersebut.
 
-Update controller
+## 5. Update model property `$fillable`
+
+     protected $fillable = [
+        'name',
+        'email',
+        'password',
+        'profile_picture',
+        'address',
+        'bio'
+    ];
+
+## 6. Update controller
 
 ```php
 <?php
@@ -42,7 +58,9 @@ $data['profile_picture'] = $filename;
 $request->user()->update($data);
 ```
 
-Usefule method uploadfile class provided
+laksanakan ujian untuk test upload.
+
+### Usefull method
 
 1. `$request->profile_picture->getClientOriginalName()` - return the original name of the uploaded file
 2. `$request->profile_picture->getClientOriginalExtension()` - return extension

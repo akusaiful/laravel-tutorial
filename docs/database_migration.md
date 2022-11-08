@@ -10,7 +10,7 @@ some_url: academy.jpj.gov.my/mylatihan
 # Database Migration
 
 
-## Create Migration Table
+## Create Table Using `Migration`
 
 Create table migration
 
@@ -40,8 +40,19 @@ class CreateStocksTable extends Migration
             $table->id();
             $table->integer('order_satus');
             $table->string('note_order');
-            $table->string('note_hq');                
+            $table->string('note_hq');
+            
+            // foreign column
+            $table->foreignId('user_id');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            // $table->foreign('customer_id')->references('id')->on('customers');
+
             $table->timestamp('submited_at')->useCurrent();
+
+            $table->enum('method', ['credit_card', 'paypal']);
+            $table->decimal('amount', 8, 2);
+
+            // column created_at, updated_at
             $table->timestamps();
         });
     }
