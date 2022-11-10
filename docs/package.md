@@ -31,3 +31,5 @@
 6. https://intervention.io (Image manipulation)
 7. https://github.com/InfyOmLabs/laravel-generator
 8. https://github.com/makeabledk/laravel-factory-enhanced
+9. https://spatie.be/
+10. https://github.com/spatie/laravel-web-tinker

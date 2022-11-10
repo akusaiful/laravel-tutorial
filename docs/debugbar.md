@@ -1,13 +1,22 @@
 
-# Install laravel-ide-helper (Debugbar)
+# Debugbar
 
-Composer
+![Debugbar](img/debugbar.png)
+
+Install
+
+    composer require barryvdh/laravel-debugbar --dev
+
+The Debugbar will be enabled when `APP_DEBUG` is `true`.
+
+!!! info "Reference"
+    [https://github.com/barryvdh/laravel-debugbar](https://github.com/barryvdh/laravel-debugbar)
+
+# (Optional) Install laravel-ide-helper 
+
+Install using composer
 
     composer require --dev barryvdh/laravel-ide-helper --dev
-
-Git 
-
-    https://github.com/barryvdh/laravel-debugbar
 
 Add this conditional statement in your `AppServiceProvider` to register the helper class.
 
@@ -23,10 +32,11 @@ Generate a file to help the IDE understand Facades. You will need to restart Vis
     
     php artisan ide-helper:generate
 
+# (Optional) Laravel Query Detector N+1
 
-# Laravel Query Detector N+1
+Install package
 
-1. https://github.com/beyondcode/laravel-query-detector
+    https://github.com/beyondcode/laravel-query-detector
 
 Customize query detector to use debugbar as default alert. 
 

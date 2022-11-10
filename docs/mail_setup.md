@@ -95,8 +95,3 @@ Route::get('/email', function(){
 
 Access ke `/email` dan email akan dihantar menggunakan template view yang telah dibuat. 
 
-
-### Tugasan 
-
-Tukarkan route menggunakan controller untuk membuat penghantaran email.
-

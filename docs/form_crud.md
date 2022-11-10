@@ -2,9 +2,9 @@
 
 Create controller
 
-    php artisan make:controller PhoneController -r
+    php artisan make:controller ContactController -r
 
-untuk melaksanakan operasi CRUD, 7 method dan verb seperti berikut diperlukan : 
+untuk melaksanakan operasi CRUD, 7 method dan verb seperti berikut diperlukan :
 
 1. `index()` - `GET`
 2. `create()` - `GET`
@@ -19,47 +19,44 @@ untuk melaksanakan operasi CRUD, 7 method dan verb seperti berikut diperlukan :
 Route
 
 ```php
-<?php 
-Route::get('phones/index', [PhoneController::class, 'index'])->name('phones.index');
+<?php
+Route::get('contacts/index', [Contactontroller::class, 'index'])->name('contacts.index');
 ```
 
 Controller
 
-```php 
-<?php 
+```php
+<?php
 public function index()
-{        
-    return view('phone.index', ['phones' => Phone::paginate(10)]);
+{
+    return view('contact.index', ['contacts' => Contact::paginate(10)]);
 }
 ```
 
 View
- 
+
 ```html
 <table class="table">
-    <thead>
-        <th>Phone Name</th>
-        <th>Number</th>
-        <th></th>
-    </thead>
-    @if($phones->total())
-    @foreach ($phones as $phone)
-        <tr>
-            <td>{{ $phone->name }}</td>
-            <td>{{ $phone->number }}</td>
-            <td><a href="{{ route('phones.show', $phone->id) }}">View</a></td>
-        </tr>
-    @endforeach
-    @else
-        <tr>
-            <td colspan="3">Tiada rekod</td>
-        </tr>
-    @endif
+  <thead>
+    <th>Name</th>
+    <th>Email</th>
+    <th></th>
+  </thead>
+  @if($contacts->total()) @foreach ($contacts as $contact)
+  <tr>
+    <td>{{ $contact->name }}</td>
+    <td>{{ $contact->email }}</td>
+    <td><a href="{{ route('contacts.show', $contact->id) }}">View</a></td>
+  </tr>
+  @endforeach @else
+  <tr>
+    <td colspan="3">Tiada rekod</td>
+  </tr>
+  @endif
 </table>
 
-{{ $phones->links() }}
-
-```  
+{{ $contacts->links() }}
+```
 
 !!! tips "TIPS : Render pagination page"
     See [Pagination](pagination.md) topic
@@ -69,20 +66,25 @@ View
 View - link to route
 
 ```html
-<a href="{{ route('contacts.view', $contact->id) }}" class="btn btn-sm btn-circle btn-outline-info" title="Show"><i class="fa fa-eye"></i></a>
+<a
+  href="{{ route('contacts.view', $contact->id) }}"
+  class="btn btn-sm btn-circle btn-outline-info"
+  title="Show"
+  ><i class="fa fa-eye"></i
+></a>
 ```
 
 Route
 
-```php 
-<?php 
+```php
+<?php
 Route::get('/contacts/{id}', [\App\Http\Controllers\ContactController::class, 'view'])->name('contacts.view');
 ```
 
 Controller
 
-```php 
-<?php 
+```php
+<?php
 public function view($id)
 {
     $contact = \App\Models\Contact::findOrFail($id);
@@ -93,11 +95,51 @@ public function view($id)
 Blade - view record
 
 ```html
-<div class="form-group row">
-    <label for="phone" class="col-md-3 col-form-label">Phone</label>
-    <div class="col-md-9">
-    <p class="form-control-plaintext text-muted">{{ $contact->phone }}</p>
+<div class="card-body">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="form-group row">
+        <label for="name" class="col-md-3 col-form-label">Name</label>
+        <div class="col-md-9">
+          <p class="form-control-plaintext text-muted">
+            {{ $contact->name }}
+          </p>
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label for="email" class="col-md-3 col-form-label">Email</label>
+        <div class="col-md-9">
+          <p class="form-control-plaintext text-muted">{{ $contact->email }}</p>
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label for="phone" class="col-md-3 col-form-label">Phone</label>
+        <div class="col-md-9">
+          <p class="form-control-plaintext text-muted">{{ $contact->phone }}</p>
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label for="name" class="col-md-3 col-form-label">Address</label>
+        <div class="col-md-9">
+          <p class="form-control-plaintext text-muted">
+            {{ $contact->address }}
+          </p>
+        </div>
+      </div>
+      
+      <hr />
+      <div class="form-group row mb-0">
+        <div class="col-md-9 offset-md-3">
+          <a href="{{ route('contacts.edit', $contact->id) }}" class="btn btn-info">Edit</a>
+          <a href="#" class="btn btn-outline-danger">Delete</a>
+          <a href="{{ route('contacts.index') }}" class="btn btn-outline-secondary">Cancel</a>
+        </div>
+      </div>
     </div>
+  </div>
 </div>
 ```
 
@@ -109,7 +151,7 @@ View - link to route
 <a href="{{ route('contacts.edit', $contact->id) }}" class="btn btn-sm btn-circle btn-outline-info" title="Show">Edit</a>
 ```
 
-Route 
+Route
 
 ```php
 <?php
@@ -124,42 +166,49 @@ Form
 
 ```html
 <form action="{{ route('contacts.update', $contact->id) }}" method="POST">
-    @method('PUT')
-    @csrf
-    <div class="row">
-        <div class="col-md-12">
-            <div class="form-group row">
-                <label for="name" class="col-md-3 col-form-label">Name</label>
-                <div class="col-md-9">
-                    <input type="text" name="name" id="name"
-                        class="form-control @error('name') is-invalid @enderror" value="{{ old('name', $contact->name) }}">
-                    @error('name')
-                    <div class="invalid-feedback">
-                        {{ $message }}
-                    </div>
-                    @enderror
-                </div>
-            </div>
-
-            <div class="form-group row mb-0">
-                <div class="col-md-9 offset-md-3">
-                    <button type="submit" class="btn btn-primary">{{ $contact->exists? 'Update' : 'Save'  }}</button>
-                    <a href="{{ route('contacts.index') }}" class="btn btn-outline-secondary">Cancel</a>
-                </div>
-            </div>
+  @method('PUT') @csrf
+  <div class="row">
+    <div class="col-md-12">
+      <div class="form-group row">
+        <label for="name" class="col-md-3 col-form-label">Name</label>
+        <div class="col-md-9">
+          <input
+            type="text"
+            name="name"
+            id="name"
+            class="form-control @error('name') is-invalid @enderror"
+            value="{{ old('name', $contact->name) }}"
+          />
+          @error('name')
+          <div class="invalid-feedback">{{ $message }}</div>
+          @enderror
         </div>
+      </div>
+
+      <div class="form-group row mb-0">
+        <div class="col-md-9 offset-md-3">
+          <button type="submit" class="btn btn-primary">
+            {{ $contact->exists? 'Update' : 'Save' }}
+          </button>
+          <a
+            href="{{ route('contacts.index') }}"
+            class="btn btn-outline-secondary"
+            >Cancel</a
+          >
+        </div>
+      </div>
     </div>
+  </div>
 </form>
 ```
 
 Model
 
 ```php
-// senarai property untuk massive assign dari $request->all() 
+// senarai property untuk massive assign dari $request->all()
 protected $fillable = ['name', 'email', 'phone', 'address', 'company_id'];
 ```
 
-    
 Controller
 
 ```php
@@ -180,7 +229,7 @@ public function update(Request $request, $id)
 private function save(Request $request, $id = '')
 {
     $request->validate([
-        'name' => 'required',            
+        'name' => 'required',
         'email' => 'required | email',
         'address' => 'required',
         'company_id' => 'required|exists:companies,id'
@@ -201,7 +250,7 @@ private function save(Request $request, $id = '')
 
 ## Create
 
-View 
+View
 
 ```html
 <a href="{{ route('contacts.create') }}">Create</a>
@@ -225,42 +274,42 @@ Create form
 
 ```html
 <form action="{{ route('contacts.store') }}" method="POST">
-    // Insert hidden field
-    @csrf
-
-    // inlucde contact form view
-    @include('contacts._form')
+  // Insert hidden field @csrf // inlucde contact form view
+  @include('contacts._form')
 </form>
+```
 
-Model
+Model 
 
     protected $fillable = ['name', 'email', 'phone', 'address', 'company_id'];
 
 Form 
 
-1. Validation untuk INPUT
+Validation untuk INPUT 
 
-```html
-// contacts._form
+```html 
 <div class="row">
-<div class="col-md-12">
+  <div class="col-md-12">
     <div class="form-group row">
-        <label for="name" class="col-md-3 col-form-label">Name</label>
-        <div class="col-md-9">
-            <input type="text" name="name" id="name"
-                    class="form-control @error('name') is-invalid @enderror" value="{{ old('name') }}">
-            @error('name')
-            <div class="invalid-feedback">
-                {{ $message }}
-            </div>
-            @enderror
-        </div>
+      <label for="name" class="col-md-3 col-form-label">Name</label>
+      <div class="col-md-9">
+        <input
+          type="text"
+          name="name"
+          id="name"
+          class="form-control @error('name') is-invalid @enderror"
+          value="{{ old('name') }}"
+        />
+        @error('name')
+        <div class="invalid-feedback">{{ $message }}</div>
+        @enderror
+      </div>
     </div>
+  </div>
 </div>
-</div>
-```
+````
 
-2. Validation untuk SELECT
+Validation untuk SELECT
 
 ```html
 <div class="form-group row">
@@ -278,12 +327,12 @@ Form
             @enderror
     </div>
 </div>
-```   
+```
 
 Create controller untuk menyimpan rekod
 
-```php 
-<?php 
+```php
+<?php
 use Illuminate\Validation\Rule;
 
 public function store(Request $request)
@@ -310,30 +359,29 @@ public function store(Request $request)
 }
 ```
 
-## Delete 
+## Delete
 
-1. Delete using POST
+1.  Delete using POST
 
     View
 
     ```html
     <form action="{{ route('phones.destroy', $phone->id) }}" method="POST" class="form-inline-block" id="frm-delete">
-        @method('DELETE')
-        @csrf
-        <a href="{{ route('phones.edit', $phone->id) }}" class="btn btn-outline-primary">Edit</a>
-        <a href="{{ session('prev-url') }}" class="btn btn-outline-primary">Back</a>
-        <input type="submit" value="Delete" class="btn btn-outline-danger">
+      @method('DELETE') @csrf
+      <a href="{{ route('phones.edit', $phone->id) }}" class="btn btn-outline-primary">Edit</a>
+      <a href="{{ session('prev-url') }}" class="btn btn-outline-primary">Back</a>
+      <input type="submit" value="Delete" class="btn btn-outline-danger" />
     </form>
     ```
 
-    Route 
+    Route
 
         Route::delete('phones/destroy', [PhoneController::class, 'destroy'])->name('phones.destroy)
 
     Controller
 
-    ```php 
-    <?php 
+    ```php
+    <?php
     public function destroy(Phone $phone)
     {
         $phone->delete();
@@ -341,57 +389,62 @@ public function store(Request $request)
     }
     ```
 
-
-2. Delete Using JS
+2.  Delete Using JS
 
     Route `web.php`
 
     ```php
-    <?php 
+    <?php
     Route::delete('/contacts/{id}', [\App\Http\Controllers\ContactController::class, 'delete'])->name('contacts.delete');
     ```
 
     Blade
 
     ```html
-    <a href="{{ route('contacts.delete', $contact->id) }}" class="btn-delete btn btn-sm btn-circle btn-outline-danger" title="Delete"><i class="fa fa-times"></i></a>
+    <a
+      href="{{ route('contacts.delete', $contact->id) }}"
+      class="btn-delete btn btn-sm btn-circle btn-outline-danger"
+      title="Delete"
+      ><i class="fa fa-times"></i
+    ></a>
 
     .....
 
     <form id="form-delete" method="POST" style="display: none">
-    @method('DELETE')
-    @csrf
+      @method('DELETE') @csrf
     </form>
     ```
 
     JS `public\js\app.js`
 
     ```js
-    document.querySelectorAll('.btn-delete').forEach((button) => {
-        button.addEventListener('click', function (event) {
-            event.preventDefault();
-            if(confirm("Are you sure")){
-                let action = this.getAttribute('href');
-                let form = document.getElementById('form-delete');
-                form.setAttribute('action', action);
-                form.submit();
-            }
-        });
+    document.querySelectorAll(".btn-delete").forEach((button) => {
+      button.addEventListener("click", function (event) {
+        event.preventDefault();
+        if (confirm("Are you sure")) {
+          let action = this.getAttribute("href");
+          let form = document.getElementById("form-delete");
+          form.setAttribute("action", action);
+          form.submit();
+        }
+      });
     });
     ```
 
     Controller
 
     ```php
-    <?php 
+    <?php
     public function delete($id)
     {
         Contact::query()->findOrFail($id)->delete();
         return back()->with('message', 'Contact has been deleted successfully.');
     }
-```
+    ```
 
-## Final Route 
+
+
+## Final Route
 
 ```php
 <?php

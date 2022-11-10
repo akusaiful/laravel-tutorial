@@ -16,6 +16,7 @@ return [
 
 Tukar statik text berikut : 
 
+```html
     <div class="d-flex justify-content-between align-items-center">
         <h2>Phone Directory</h2>
         <ol>
@@ -23,9 +24,10 @@ Tukar statik text berikut :
             <li>Inner Page</li>
         </ol>
     </div>
-
+```
 Menggunakan __() translation facade
 
+```html
     <div class="d-flex justify-content-between align-items-center">
         <h2>{{ __('phone.title') }}</h2>    
         <ol>
@@ -33,7 +35,7 @@ Menggunakan __() translation facade
             <li>Inner Page</li>
         </ol>
     </div>
-
+```
 ## 3. Ubah language kepada 'malay' dalam `config/app.php'
 
 

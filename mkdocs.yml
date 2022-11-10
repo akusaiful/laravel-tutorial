@@ -106,6 +106,7 @@ nav:
 
 - Mail: 
   - Setup: mail_setup.md  
+  - Mail Assignment: mail_assignment.md
 
 - Upload: 
   - Upload File: upload.md  

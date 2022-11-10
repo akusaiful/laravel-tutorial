@@ -1,7 +1,7 @@
 
 ## Hello Laravel - First Flight
 
-Taip code berikut di file `routes/web.php` untuk dapatkan paparan di browser dan ekses melalui `http://127.0.0.1:8001/hello`
+Taip code berikut di file `routes/web.php` untuk dapatkan paparan di browser dan ekses melalui `/hello`
 
 ```php
 <?php
@@ -10,7 +10,7 @@ Route::get('hello', function(){
 });
 ```
 
-Boleh guna HTML code untuk return  
+Masukkan kod HTML 
 
 ```php
 <?php
@@ -92,14 +92,17 @@ Route::get('hello/{name}/{age?}', function (Request $request) {
 ```
 
 Route view
-    
-    Route::view('/hello', 'welcome', ['name' => 'Taylor']);
+
+```php
+<?php   
+Route::view('/hello', 'welcome', ['name' => 'Ahmad']);
+```
 
 For more documention about routing [https://laravel.com/docs/9.x/routing](https://laravel.com/docs/9.x/routing)
 
 ## :japanese_ogre: Latihan
 
-1. Tulis satu route untuk membolehkan pengiraan sifir 2 sehingga 12
+1. Tulis satu route `/calc` untuk membolehkan pengiraan sifir 2 seperti berikut : 
 
         1 * 2 = 2
         2 * 2 = 4
@@ -107,4 +110,4 @@ For more documention about routing [https://laravel.com/docs/9.x/routing](https:
         ..
         12 * 2 = 24
 
-2. Jadikan pengiraan diatas sebagai variable yang membolehkan input dari user diambil untuk membuat pengiraan, contoh `calc/4` akan mengira sifir 4 atau `calc/12` akan mengira sifir 12    
+2. Jadikan pengiraan diatas sebagai variable yang membolehkan input dari user diambil untuk membuat pengiraan, contoh `/calc/4` akan mengira sifir 4 atau `/calc/12` akan mengira sifir 12    

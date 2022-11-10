@@ -1,5 +1,7 @@
 # Class Guideline
 
+![Laravel Guide](img/hello.png)
+
     .
     ├─ Day 1 /
     │  └─ Introduction to laravel
@@ -41,7 +43,9 @@
     │
     ├─ Day 4
     │  └─ Handling File Upload
-    │  └─ Blade Components 
+    │  └─ Mail
+    │  └─ PDF
+    │  └─ Translation
     │  └─ Package
     │
     │

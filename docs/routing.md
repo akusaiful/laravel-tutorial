@@ -73,17 +73,60 @@ Route::get('/contacts/{id}', function($id) {
 
 Index
 
-    Route::get('contacts', [\App\Http\Controllers\ContactController::class, 'index'])->name('contacts.index');
+```php
+<?php 
+Route::get('contacts', 
+[\App\Http\Controllers\ContactController::class, 'index'])
+->name('contacts.index');
+```
 
 Create 
 
-    Route::get('/contacts/create', [\App\Http\Controllers\ContactController::class, 'create'])->name('contacts.create');
+```php
+<?php 
+Route::get('/contacts/create', 
+[\App\Http\Controllers\ContactController::class, 'create'])
+->name('contacts.create');
+```
 
 View ID
-    
-    Route::get('/contacts/{id}', [\App\Http\Controllers\ContactController::class, 'view'])->name('contacts.view';
+
+```php
+<?php     
+Route::get('/contacts/{id}', 
+[\App\Http\Controllers\ContactController::class, 'view'])
+->name('contacts.view';
+```
 
 ## Implicit - Route model binding
+
+```php
+<?php 
+// http://localhost.com/manufacture/24
+Route::get('manufacture/{id}', function ($id) {
+  $manufacture = Manufacature::find($id);
+  if (!$post) return abort(404);  
+  return view('manufacture.show', compact('manufacture'));
+});
+```
+
+```php
+<?php 
+Route::get('manufacture/{id}', function ($id) {
+  $manufacture = Manufacture::findOrFail($id);
+  return view('manufacture.show', compact('manufacture'));
+});
+```
+
+Dengan menggunakan route model binding, code diatas boleh ditulis seperti berikut : 
+
+```php 
+<?php
+
+Route::get('manufacture/{manufacture}', function (Manufacture $manufacture) {
+  return view('manufacture.show', compact('manufacture'));
+});
+```
 
 Change following method 
 

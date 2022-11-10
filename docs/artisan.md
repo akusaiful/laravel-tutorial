@@ -11,6 +11,7 @@ Serve using port
 Senaraikan semua route 
 
     php artisan route:list  
+    php artisan route:list --compact 
     php artisan route:list --name=logout
 
     # untuk lihat yang path api (api route)
@@ -23,6 +24,10 @@ Clear config cache `env`. Jika modified environment
 Check Laravel framework version
 
     php artisan --version
+
+Link to storage (create sym link)
+
+    php artisan storage:link
 
 
 

@@ -3,8 +3,8 @@
 
 1. [https://github.com/laravel/fortify](https://github.com/laravel/fortify)
 2. [https://laragon.org/](https://laragon.org/)
-3. https://jetstream.laravel.com/2.x/introduction.html
-4. https://dev.to/ericchapman/my-beloved-laravel-cheat-sheet-3l73
+3. [https://jetstream.laravel.com/2.x/introduction.html](https://jetstream.laravel.com/2.x/introduction.html)
+4. [https://dev.to/ericchapman/my-beloved-laravel-cheat-sheet-3l73](https://dev.to/ericchapman/my-beloved-laravel-cheat-sheet-3l73)
 
 ## Mkdocs 
 

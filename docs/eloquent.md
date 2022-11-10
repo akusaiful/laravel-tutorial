@@ -38,6 +38,10 @@ Take 3 latest
 
     User::latest()->take(3)->get()
 
+To Array
+
+    Manufacture::get()->toArray()
+
 ## Where
 
     Company::where('website', 'lowe.com')->first()
@@ -45,6 +49,10 @@ Take 3 latest
 or 
 
     Company::whereWebsite('lowe.com')->first()
+
+
+    Manufacture::whereRaw('name like ?', ['Apple'])->get();
+
 
 ## Delete
 
@@ -72,12 +80,15 @@ Letakkan seperti berikut untuk membolehkan property di assign
 
 Senaraikan property yang hanya digunakan dalam mass assignment, jika ada property yang dimasukkan tapi tidak wujud dalam table, still tiada error akan dipaparkan
 
-    protected $fillable = [
-        'name',
-        'address',
-        'website',
-        'email'
-    ];
+```php
+<?php 
+protected $fillable = [
+    'name',
+    'address',
+    'website',
+    'email'
+];
+```
 
 ## Relationships
 
