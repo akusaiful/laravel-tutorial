@@ -283,7 +283,7 @@ Children of onother resource, route untuk capture one to many relationship.
 
     Route::resource('/companies.contacts', ContactController::class);
 
-🥵 ## Naming Resource Route
+## Naming Resource Route
 
     Route::resource('/contacts', ContactController::class)->names([
         'index' => 'contacts.all',

@@ -94,3 +94,6 @@ public function messages()
 ```
 
 Boleh juga call `$this->route('contact')` atau `$this->method()` dari dalam object request untuk dapatkan information berkaitan request atau object yang akan dikemaskini berdasarkan kepada model binding dekat route.    
+
+!!! tips
+    All available validation rules : [https://laravel.com/docs/9.x/validation#available-validation-rules](https://laravel.com/docs/9.x/validation#available-validation-rules)

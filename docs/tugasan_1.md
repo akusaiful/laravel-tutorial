@@ -1,12 +1,11 @@
-## :japanese_ogre: Latihan Penggunaan Template (10 Minit)
+## :japanese_ogre: Latihan : Pemahaman Route
 
-#### Latihan 1
-1. Download template dari [bootstrapmade](https://bootstrapmade.com/bizland-bootstrap-business-template/download/)
-2. Masukkan template (yg dimuat turun) ke dalam laravel layout
-3. Modify layout kiraan sifir menggunakan layout yang telah dikemaskini.
+1. Tulis satu route `/calc` untuk membolehkan pengiraan sifir 2 seperti berikut : 
 
-#### Latihan 2
-1. Masukkan form yang membolehkan input number yang dikehendaki dimasukkan oleh pengguna. Form mengandungi : 
-    1. Textbox
-    2. Button submit
-2. Papar sifir yang dikira berdasarkan number yang dimasukkan oleh pengguna
+        1 * 2 = 2
+        2 * 2 = 4
+        ..
+        ..
+        12 * 2 = 24
+
+2. Jadikan pengiraan diatas sebagai variable yang membolehkan input dari user diambil untuk membuat pengiraan, contoh `/calc/4` akan mengira sifir 4 atau `/calc/12` akan mengira sifir 12    

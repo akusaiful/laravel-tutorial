@@ -1,4 +1,4 @@
-site_name: Laravel Manual
+site_name: Laravel Tutorial Manual
 site_description: 'Laravel manual project for class'
 site_author: 'akusaiful'
 site_url: ''
@@ -31,7 +31,7 @@ theme:
       toggle:
         icon: material/brightness-4
         name: Switch to light mode
-      primary: red
+      primary: indigo
 plugins:
     - search
     # - git-revision-date
@@ -65,11 +65,14 @@ nav:
 - Intro: 
   - Introduction: index.md
   - Class Guide: guide.md
+  - IAM: me.md
   - Installation: installation.md
-  - Laravel Structure: structure.md
+  - Laravel Architecture: structure.md
   - Hello Laravel (Route) : hello-laravel.md
   - Blade Template : templating.md
+  - Tugasan 0 : tugasan_0_structure_to_object.md
   - Tugasan 1 : tugasan_1.md
+  - Tugasan 2 : tugasan_2.md
 
 - Database:   
   - Configuration: db.md
@@ -125,13 +128,14 @@ nav:
   
 - Reference:
   - Template: template.md
+  - Code Complete : code_complete.md
   - eBook: ebook.md
   - Package : package.md
   - Voyager: voyager.md 
   - Composer: composer.md
   - Artisan Command: artisan.md
-  - Markdown Tips : markdown.md
-  - Reference: resource.md
+  # - Markdown Tips : markdown.md
+  - Manual Reference: manual_reference.md
   # - Introduction: index.md
   # - Class Guide: guide.md
   # - Installation: installation.md

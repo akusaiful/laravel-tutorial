@@ -10,31 +10,40 @@ Create folder `resources\views\layouts\` and file `main.blade.php`. Sebagai main
 
 di subview letakkan code berikut sebagai contoh di `resources\views\index.blade.php`
 
-    @extends('layouts.main')
+```php 
+<?php 
+@extends('layouts.main')
 
-    @section('title', 'Tajuk here')
+@section('title', 'Tajuk here')
 
-    @section('content')
-    .
-    .
-    @endsection
+@section('content')
+.
+.
+@endsection
+```
 
 dan call guna route berikut. Letak di file `routes\web.php` :
 
-    Route::get('/', function(){
-        return view('index');
-    });
+```php 
+<?php 
+Route::get('/', function(){
+    return view('index');
+});
+```
     
 ## Passing variable
 
-    // First
-    return view('folder.view_name')->with('variablename', $value)
+```php 
+<?php 
+// First
+return view('folder.view_name')->with('variablename', $value)
 
-    // Second
-    return view('folder.view_name')->compact('variable_name')
+// Second
+return view('folder.view_name')->compact('variable_name')
 
-    // Third
-    return view('folder.view_name', [])
+// Third
+return view('folder.view_name', [])
+```
 
 
 For more info [https://laravel.com/docs/5.5/blade](https://laravel.com/docs/5.5/blade)
