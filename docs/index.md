@@ -6,6 +6,10 @@ Laravel is a free and open-source PHP web framework, created by Taylor Otwell an
 
 Laravel official website : [https://laravel.com/](https://laravel.com/)
 
+Tutorial ini boleh diperolehi secara online di 
+
+    https://akusaiful.github.io/laravel-tutorial/
+
 ## Laravel Prerequisites
 
 1. PHP >= 7.2.5 ([https://www.php.net/](https://www.php.net/ ))
@@ -18,6 +22,8 @@ Laravel official website : [https://laravel.com/](https://laravel.com/)
 ## Laravel best practices 
 
 Laravel best practices :  [https://github.com/alexeymezenin/laravel-best-practices](https://github.com/alexeymezenin/laravel-best-practices)
+
+
 
 
 

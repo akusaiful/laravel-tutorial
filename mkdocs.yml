@@ -64,8 +64,7 @@ markdown_extensions:
 nav:
 - Intro: 
   - Introduction: index.md
-  - Class Guide: guide.md
-  - IAM: me.md
+  - Class Guide: guide.md  
   - Installation: installation.md
   - Laravel Architecture: structure.md
   - Hello Laravel (Route) : hello-laravel.md
