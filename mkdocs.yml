@@ -84,8 +84,6 @@ nav:
   - Factory: factory.md
   - Controller: controller.md
 
-
-
 - CRUD:
   - CRUD Scaffolding: form_crud.md
   - Pagination: pagination.md

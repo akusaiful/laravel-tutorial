@@ -10,6 +10,7 @@
 8. [https://github.com/makeabledk/laravel-factory-enhanced](https://github.com/makeabledk/laravel-factory-enhanced)
 9. [https://spatie.be/](https://spatie.be/)
 10. [https://github.com/spatie/laravel-web-tinker](https://github.com/spatie/laravel-web-tinker)
+11. https://laravelcollective.com/docs/5.1/html
 
 ## Pogination (Fast pagination)
 
