@@ -5,8 +5,8 @@ Untuk tujuan kelas akan menggunakan konfigurasi berikut :
 
     MAIL_MAILER=smtp
     MAIL_HOST=smtp.hostinger.com
-    MAIL_PORT=587
-    MAIL_USERNAME=training@danconsult.my
+    MAIL_PORT=465
+    MAIL_USERNAME=training2@danconsult.my
     MAIL_PASSWORD=qwertyuiOP25$$
     MAIL_ENCRYPTION=null
     MAIL_FROM_ADDRESS=training@danconsult.my

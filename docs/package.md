@@ -12,6 +12,10 @@
 10. [https://github.com/spatie/laravel-web-tinker](https://github.com/spatie/laravel-web-tinker)
 11. https://laravelcollective.com/docs/5.1/html
 
+## Best laravel package
+
+    https://github.com/LaravelDaily/Best-Laravel-Packages
+
 ## Pogination (Fast pagination)
 
     https://github.com/hammerstonedev/fast-paginate
