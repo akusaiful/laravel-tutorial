@@ -349,8 +349,9 @@ public function store(Request $request)
         'company_id' => 'required|exists:companies,id'
 
     ]);
-    $contact = new Contact();
-    $contact->create($requst->all());
+    // $contact = new Contact();
+    // $contact->create($requst->all());
+    $contact = Contact::create($request->all());
     return redirect()->route('contacts.show', $contact->id)->with('msg', 'Success');
 
     // dd($request->all());

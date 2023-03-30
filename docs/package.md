@@ -10,7 +10,12 @@
 8. [https://github.com/makeabledk/laravel-factory-enhanced](https://github.com/makeabledk/laravel-factory-enhanced)
 9. [https://spatie.be/](https://spatie.be/)
 10. [https://github.com/spatie/laravel-web-tinker](https://github.com/spatie/laravel-web-tinker)
-11. https://laravelcollective.com/docs/5.1/html
+11. https://laravelcollective.com
+12. https://laravelactions.com/
+13. https://laravel-livewire.com/docs/2.x/installation
+14. https://laravelviews.com/
+15. https://yajrabox.com/
+16. https://github.com/imanghafoori1/laravel-heyman
 
 ## Best laravel package
 
@@ -33,3 +38,12 @@
 
     https://github.com/timwassenburg/laravel-improved-resource-controllers
 
+
+## Laravel Grid View
+
+    https://github.com/itstructure/laravel-grid-view
+
+
+## Filter Input 
+
+    https://github.com/Waavi/Sanitizer

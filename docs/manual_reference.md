@@ -5,6 +5,7 @@
 2. [https://laragon.org/](https://laragon.org/)
 3. [https://jetstream.laravel.com/2.x/introduction.html](https://jetstream.laravel.com/2.x/introduction.html)
 4. [https://dev.to/ericchapman/my-beloved-laravel-cheat-sheet-3l73](https://dev.to/ericchapman/my-beloved-laravel-cheat-sheet-3l73)
+5. https://xqsit.github.io/laravel-coding-guidelines/docs/use-standard-laravel-tools/
 
 ## Mkdocs 
 
