@@ -1,4 +1,4 @@
-# CRUD Scaffolding
+# CRUD 
 
 Create controller
 
@@ -14,7 +14,7 @@ untuk melaksanakan operasi CRUD, 7 method dan verb seperti berikut diperlukan :
 6. `update()` - `PUT`
 7. `destroy()` - `DELETE`
 
-## Index - Browse Data
+## Index 
 
 Route
 
@@ -61,7 +61,7 @@ View
 !!! tips "TIPS : Render pagination page"
     See [Pagination](pagination.md) topic
 
-## View - Show Data
+## View 
 
 View - link to route
 

@@ -2,9 +2,9 @@
 
 `Helper` adalah method/class untuk membantu memudahkan penulisan code seperti `request()` dan `auth()`.
 
-1. Add folder `app\Helpers`
-2. Create file `app\Helpers\Helpers.php`
-2. Add code : 
+1. Create folder `app\Helpers`
+
+2. Create file `app\Helpers\Helpers.php` and add code : 
 
 ```php
 <?php
@@ -16,7 +16,7 @@ if(!function_exists('getName')){
     }
 }
 ```  
-4. Add to file `composer.json'
+3. Add to `composer.json'
 
 ```json
 "autoload": {
@@ -30,9 +30,9 @@ if(!function_exists('getName')){
     ]
 },
 ```
-5. run 
+4. run 
 
-     composer dump-autoload
+    composer dump-autoload
 
 Use code in view or controller
 

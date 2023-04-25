@@ -85,7 +85,7 @@ nav:
   - Controller: controller.md
 
 - CRUD:
-  - CRUD Scaffolding: form_crud.md
+  - CRUD: form_crud.md
   - Pagination: pagination.md
   - Request Validation: form_validation.md
   - Search: search.md    
@@ -122,9 +122,18 @@ nav:
   
 - Utils:   
   - Helpers: helper.md
-  - Debugbar: debugbar.md
+  - Breadcrumb: breadcrumb.md
+  - Remove Public: remove_public.md
   
-  
+- Package:
+  - Setup Package: package_install.md
+  - Debugbar: package_debugbar.md
+  - Web Tinker: package_webtinker.md
+  - Extender Controller: package_extender_controller.md
+  - Sweetalert: package_sweetalert.md
+  - Grid: package_grid.md
+  - Action: package_action.md
+
 - Reference:
   - Template: template.md
   - Code Complete : code_complete.md

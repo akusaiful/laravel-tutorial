@@ -115,4 +115,4 @@ The migrate:reset command will roll back all of your application's migrations:
 
     Jika berlaku error **SQLSTATE[42000]: Syntax error or access violation: 1071 Specified key was too long; max key length is 767 bytes (SQL: alter table `users` add unique `users_email_unique`(`email`))**
 
-    Rujuk [voyager error](installation.md)  
+    Rujuk [voyager error](voyager.md)  

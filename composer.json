@@ -1,0 +1,5 @@
+{
+    "require": {
+        "itstructure/laravel-grid-view": "~1.0.11"
+    }
+}
