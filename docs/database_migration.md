@@ -102,6 +102,12 @@ Refresh migration file (drop table dan re-run semula migration file) dan run see
 
     php artisan migrate:refresh --seed
 
+    // or
+
+Refresh and run again migration file
+
+    php artisan migrate:fresh
+
 Rollback batch ikut step
 
     php artisan migrate:rollback --step=2

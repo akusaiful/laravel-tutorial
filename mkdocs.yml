@@ -27,11 +27,31 @@ theme:
     text: Roboto
     code: 'Roboto Mono'
   palette:
-    - scheme: slate
+  # Palette toggle for light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+
+    # Palette toggle for dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
       toggle:
         icon: material/brightness-4
         name: Switch to light mode
       primary: indigo
+
+    # - scheme: default
+    #   toggle:
+    #     icon: material/brightness-4
+    #     name: Switch to light mode
+    #   primary: pink
+    # - scheme: slate
+    #   toggle:
+    #     icon: material/brightness-4
+    #     name: Switch to light mode
+    #   primary: indigo
 plugins:
     - search
     # - git-revision-date
@@ -73,7 +93,9 @@ nav:
   - Tugasan 1 : tugasan_1.md
   - Tugasan 2 : tugasan_2.md
 
-- Routing: routing.md  
+- Route:
+  - Routing: route_routing.md  
+  - Link: route_link.md
 
 - Database:   
   - Configuration: db.md
@@ -85,12 +107,14 @@ nav:
   - Controller: controller.md
 
 - CRUD:
-  - CRUD: form_crud.md
+  - CRUD Explain: crud_explain.md  
+  - CRUD Example: crud_full.md
   - Pagination: pagination.md
   - Request Validation: form_validation.md
-  - Search: search.md    
+  - Searching: search.md    
   - Model Scopes: local_scopes.md
   - Search Query: search_query.md
+  
   
   # - Blade: blade.md  
 - Eloquent: 
@@ -138,6 +162,8 @@ nav:
   - Template: template.md
   - Code Complete : code_complete.md
   - eBook: ebook.md
+  - Reading: reading.md
+  - VSC Extension: vsc_extension.md
   - Package : package.md
   - Voyager: voyager.md 
   - Composer: composer.md

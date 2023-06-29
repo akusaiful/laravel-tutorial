@@ -16,6 +16,7 @@
 14. https://laravelviews.com/
 15. https://yajrabox.com/
 16. https://github.com/imanghafoori1/laravel-heyman
+17. https://github.com/blade-ui-kit/blade-icons
 
 ## Best laravel package
 

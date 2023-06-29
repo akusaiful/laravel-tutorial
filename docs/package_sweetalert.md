@@ -19,3 +19,7 @@ Masukkan ke `.env`
 
 !!! info
     For more info sweetalert [https://sweetalert2.github.io/](https://sweetalert2.github.io/)
+
+### Package sweetAlert combine with livewire
+
+[https://github.com/jantinnerezo/livewire-alert](https://github.com/jantinnerezo/livewire-alert)
