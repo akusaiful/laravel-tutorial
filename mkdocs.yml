@@ -148,6 +148,7 @@ nav:
   - Helpers: helper.md
   - Breadcrumb: breadcrumb.md
   - Remove Public: remove_public.md
+  - Auto Refresh Browser: refresh_browser.md
   
 - Package:
   - Setup Package: package_install.md
@@ -157,6 +158,7 @@ nav:
   - Sweetalert: package_sweetalert.md
   - Grid: package_grid.md
   - Action: package_action.md
+  - Join: package_power_join.md
 
 - Reference:
   - Template: template.md
