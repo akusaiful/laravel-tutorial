@@ -12,6 +12,7 @@ copyright: 'Copyright &copy; 2022 akusaiful'
 
 theme:
   name: material  
+  # name: mkdocs
   features:
     - content.code.annotate
     - navigation.instant
@@ -78,9 +79,9 @@ markdown_extensions:
   - pymdownx.snippets
   - pymdownx.superfences
    
-  - pymdownx.emoji:
-      emoji_index:  !!python/name:materialx.emoji.twemoji
-      emoji_generator: !!python/name:materialx.emoji.to_svg
+  # - pymdownx.emoji:
+  #     emoji_index:  !!python/name:materialx.emoji.twemoji
+  #     emoji_generator: !!python/name:materialx.emoji.to_svg
 nav:
 - Intro: 
   - Introduction: index.md
@@ -121,6 +122,7 @@ nav:
   - Eloquent: eloquent.md  
   - Relationship : relationship.md
   - SQL Debugging: debugging.md
+  - Date Casting : date_casting.md
 
 - Auth:
   - Installation: auth_install.md
