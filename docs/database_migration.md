@@ -90,6 +90,11 @@ Install all/changes/new tables dalam folder `database/migrations`. Sistem akan c
 
     php artisan migrate
 
+Run seed data untuk memasukkan data ke dalam table yang telah dibuat.
+
+    php artisan db:seed 
+    php artisan db:seed --class=UserSeeder
+
 Rollback table migration (rollback ke 1 step batch)
 
     php artisan migrate:rollback
