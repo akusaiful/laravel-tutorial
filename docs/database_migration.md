@@ -82,11 +82,11 @@ table yang dihasilkan akan kelihatan seperti berikut :
 
 ## Migration workaround
 
-Install keseluruhan migration table yang berada di `database\migrations`
+Install migration table yang berada di `database\migrations`. Sistem akan create table migration `migrations`
 
     php artisan migrate:install 
 
-Install all/changes/new tables dalam folder `database/migrations`
+Install all/changes/new tables dalam folder `database/migrations`. Sistem akan create semua table yang ada dan juga memasukkan maklumat penciptaan table ini ke table `migrations`.
 
     php artisan migrate
 
