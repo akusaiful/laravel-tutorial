@@ -2,9 +2,9 @@
 
 Buat 3 page berikut menggunakan template bizland
 
-Page 1 : About Us
-Page 2 : Contact
-Page 3 : History
+- Page 1 : About Us
+- Page 2 : Contact
+- Page 3 : History
 
 Guna routing berikut : 
 
